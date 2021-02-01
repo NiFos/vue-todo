@@ -13,10 +13,13 @@ const router = new createRouter({
   routes,
 });
 
-router.beforeResolve((to) => {
+router.beforeEach((to, from, next) => {
   const state = store.state;
-  if (to.meta.private && !state.currentUser) {
-    router.push("auth");
+  if (to.meta.private && !state.user.currentUser) {
+    console.log("No user");
+    next({ name: "auth" });
+  } else {
+    next();
   }
 });
 

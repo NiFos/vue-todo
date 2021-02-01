@@ -1,10 +1,9 @@
-const { createStore } = require("vuex");
+import { createStore } from "vuex";
+import userModule from "./modules/user/index.js";
 
 const store = createStore({
-  state() {
-    return {
-      currentUser: "",
-    };
+  modules: {
+    user: userModule,
   },
 });
 

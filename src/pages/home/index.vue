@@ -5,6 +5,9 @@
 
 <script>
 export default {
+  created() {
+    console.log("home");
+  },
   data() {
     return {
       some1: this.$store.some,
