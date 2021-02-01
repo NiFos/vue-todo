@@ -1,17 +1,22 @@
 <template>
-  <h1>Home</h1>
-  <p>{{ some1 }}</p>
+  <h1>Vue todo</h1>
+  <v-input @submit="submitHandler" />
 </template>
 
 <script>
+import vInput from "../../components/v-input.vue";
 export default {
-  created() {
-    console.log("home");
-  },
+  components: { vInput },
   data() {
     return {
       some1: this.$store.some,
     };
+  },
+  methods: {
+    submitHandler(title) {
+      this.$store.dispatch("todo/addTodo", { title });
+      // this.todos.push({ title, checked: false });
+    },
   },
 };
 </script>
