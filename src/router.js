@@ -16,7 +16,6 @@ const router = new createRouter({
 router.beforeEach((to, from, next) => {
   const state = store.state;
   if (to.meta.private && !state.user.currentUser) {
-    console.log("No user");
     next({ name: "auth" });
   } else {
     next();

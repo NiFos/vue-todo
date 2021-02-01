@@ -3,9 +3,16 @@
 </template>
 
 <script>
+import { auth } from "./lib/firebase";
+
 export default {
   name: "App",
-
+  mounted() {
+    const user = auth.currentUser;
+    if (user) {
+      this.$store.commit("user/auth", user.email);
+    }
+  },
   components: {},
   data() {
     return {

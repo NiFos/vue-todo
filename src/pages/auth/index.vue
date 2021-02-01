@@ -5,6 +5,7 @@
 
 <script>
 import authForm from "./authForm.vue";
+
 export default {
   components: { authForm },
   methods: {
