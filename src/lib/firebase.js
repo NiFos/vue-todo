@@ -14,6 +14,6 @@ firebase.initializeApp(config);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-const todoCollection = db.collection("todos");
+const userTodoCollection = db.collection("users");
 
-export { auth, db, todoCollection };
+export { auth, db, userTodoCollection };

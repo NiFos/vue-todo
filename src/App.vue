@@ -19,19 +19,6 @@ export default {
       todos: [],
     };
   },
-  methods: {
-    submitHandler(title) {
-      this.todos.push({ title, checked: false });
-    },
-    removeHandler(id) {
-      const index = this.todos.findIndex((el) => el.id === id);
-      this.todos.splice(index, 1);
-    },
-    submitEdit(id, title) {
-      const index = this.todos.findIndex((el) => el.id === id);
-      this.todos[index].title = title;
-    },
-  },
 };
 </script>
 

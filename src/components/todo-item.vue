@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     remove() {
-      this.$emit("remove", this.id);
+      this.$emit("remove", this.todo.id);
     },
     submitEdit() {
       this.$emit("submitEdit", this.todo.id, this.newTitle);
