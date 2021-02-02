@@ -5,6 +5,7 @@
     :todos="todos"
     @remove="removeHandler"
     @submitEdit="submitEdit"
+    @check="check"
   ></todo-list>
 </template>
 
@@ -30,6 +31,9 @@ export default {
     },
     submitEdit(id, title) {
       this.$store.dispatch("todo/editTodo", { id, title });
+    },
+    check(id) {
+      this.$store.dispatch("todo/checkTodo", { id });
     },
   },
 };

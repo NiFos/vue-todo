@@ -1,5 +1,6 @@
 <template>
   <li>
+    <input type="checkbox" v-model="checked" @change="check" />
     <span v-if="!edit" @dblclick="toggleEdit">
       {{ todo.title }}
     </span>
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       newTitle: this.todo.title,
+      checked: this.todo.checked,
       edit: false,
     };
   },
@@ -30,6 +32,9 @@ export default {
     submitEdit() {
       this.$emit("submitEdit", this.todo.id, this.newTitle);
       this.toggleEdit();
+    },
+    check() {
+      this.$emit("check", this.todo.id);
     },
     toggleEdit() {
       this.edit = !this.edit;

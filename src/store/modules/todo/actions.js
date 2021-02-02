@@ -64,6 +64,21 @@ const todoActions = {
       console.log(error);
     }
   },
+  async checkTodo({ commit, rootState }, { id }) {
+    try {
+      const user = rootState.user.currentUser;
+      const index = rootState.todo.todos.findIndex((el) => el.id === id);
+      const checked = rootState.todo.todos[index].checked;
+      await userTodoCollection
+        .doc(user)
+        .collection("todos")
+        .doc(id)
+        .update({ checked });
+      commit("checkTodo", { id });
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 export default todoActions;

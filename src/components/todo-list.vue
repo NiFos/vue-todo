@@ -6,6 +6,7 @@
       :key="todo.id"
       @remove="remove"
       @submitEdit="submitEdit"
+      @check="check"
     ></todo-item>
   </ul>
 </template>
@@ -25,6 +26,9 @@ export default {
     },
     submitEdit(id, title) {
       this.$emit("submitEdit", id, title);
+    },
+    check(id) {
+      this.$emit("check", id);
     },
   },
 };
