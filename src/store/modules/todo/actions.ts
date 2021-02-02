@@ -1,6 +1,9 @@
 import { userTodoCollection } from "../../../lib/firebase";
+import { RootState } from "@/store/state";
+import { ActionTree } from "vuex";
+import { TodoState } from "./state";
 
-const todoActions = {
+const todoActions: ActionTree<TodoState, RootState> = {
   async getTodos({ commit, rootState }) {
     try {
       const user = rootState.user.currentUser;
@@ -27,7 +30,7 @@ const todoActions = {
       const response = await userTodoCollection
         .doc(user)
         .collection("todos")
-        .add({ title, user, checked: false });
+        .add({ title, checked: false });
       const newTodo = {
         id: response.id,
         title,

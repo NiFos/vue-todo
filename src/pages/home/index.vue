@@ -10,10 +10,12 @@
 </template>
 
 <script>
+import { defineComponent } from "vue";
 import TodoList from "../../components/todo-list.vue";
 import vInput from "../../components/v-input.vue";
-export default {
+export default defineComponent({
   components: { vInput, TodoList },
+
   computed: {
     todos() {
       return this.$store.state.todo.todos;
@@ -36,7 +38,7 @@ export default {
       this.$store.dispatch("todo/checkTodo", { id });
     },
   },
-};
+});
 </script>
 
 <style></style>

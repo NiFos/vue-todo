@@ -1,4 +1,7 @@
-const todoMutations = {
+import { MutationTree } from "vuex";
+import { TodoState } from "./state";
+
+const todoMutations: MutationTree<TodoState> = {
   getTodos(state, payload) {
     state.todos = payload;
   },

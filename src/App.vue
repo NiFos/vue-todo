@@ -2,15 +2,16 @@
   <router-view />
 </template>
 
-<script>
+<script lang="ts">
 import { auth } from "./lib/firebase";
+import store from "./store";
 
 export default {
   name: "App",
   mounted() {
     const user = auth.currentUser;
     if (user) {
-      this.$store.commit("user/auth", user.email);
+      store.commit("user/auth", user.email);
     }
   },
   components: {},

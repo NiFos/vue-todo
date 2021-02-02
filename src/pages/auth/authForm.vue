@@ -26,10 +26,24 @@
 
 <script>
 import { validateEmail, minLength } from "../../lib/validation";
+
+const formInitData = {
+  email: {
+    valid: false,
+    touched: false,
+    value: "",
+  },
+  password: {
+    valid: false,
+    touched: false,
+    value: "",
+  },
+};
+
 export default {
   data() {
     return {
-      form: formData,
+      form: formInitData,
       isReg: false,
     };
   },
@@ -66,19 +80,6 @@ export default {
       this.$data.form.email.valid = validateEmail(value.email.value);
       this.$data.form.password.valid = minLength(value.password.value, 6);
     },
-  },
-};
-
-const formData = {
-  email: {
-    valid: false,
-    touched: false,
-    value: "",
-  },
-  password: {
-    valid: false,
-    touched: false,
-    value: "",
   },
 };
 </script>

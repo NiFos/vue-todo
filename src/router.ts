@@ -8,7 +8,7 @@ const routes = [
   { path: "/auth", name: "auth", component: auth },
 ];
 
-const router = new createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 });
